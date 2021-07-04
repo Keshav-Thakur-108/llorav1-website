@@ -9,6 +9,7 @@ app.use(express.json())
 app.use(express.static("public"))
 app.use(require('./routes'))
 app.set('view engine', 'pug')
+app.locals.moment = require('moment')
 
 mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, 

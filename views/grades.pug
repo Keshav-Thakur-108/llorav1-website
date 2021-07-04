@@ -1,0 +1,31 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/stylesheets/index.css')
+  title Document
+.container
+
+  table.rwd-table
+    tbody
+      tr
+        th Full Name
+        th Grade
+        th Edit
+        th Delete
+      if (grades.length > 0)
+        each grade in grades
+          tr
+            td
+              = moment(grade.examDate).format('DD-MM-YYYY')
+            td
+              = grade.grade
+            td
+               a(href=`/${id}/${grade._id}/edit`) Edit
+            td
+               a(href=`/${id}/${grade._id}/delete`) Delete
+
+
+
+

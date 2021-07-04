@@ -250,6 +250,7 @@ body {
   border-color: #000;
   outline: none;
 }
+
 .select_arrow {
   position: absolute;
   top: calc(50% - 4px);
