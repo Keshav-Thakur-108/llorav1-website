@@ -6,6 +6,9 @@ const express = require('express'),
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
+app.use(express.static("public"))
+app.use(require('./routes'))
+app.set('view engine', 'pug')
 
 mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, 

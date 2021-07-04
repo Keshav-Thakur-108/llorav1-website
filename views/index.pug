@@ -1,0 +1,34 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(rel='stylesheet' href='/stylesheets/index.css')
+  title Document
+.container
+
+  table.rwd-table
+    tbody
+      tr
+        th Full Name
+        th Faculty
+        th Grades
+        th Edit
+        th Delete
+      if (students.length > 0)
+        each student in students
+          tr
+            td
+              = student.fullName
+            td
+              = student.faculty
+            td
+               a(href=`/${student._id}/grades`) Grades
+            td
+               a(href=`/${student._id}/edit`) Edit
+            td
+               a(href=`/${student._id}/delete`) Delete
+
+
+
+
