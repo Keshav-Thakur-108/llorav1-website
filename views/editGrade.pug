@@ -6,7 +6,8 @@ html(lang='en')
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js' integrity='sha512-RXf+QSDCUQs5uwRKaDoXt55jygZZm2V++WUZduaU/Ui/9EGp3f/2KZVahFZBKGH0s774sd3HmrhUy+SgOFQLVQ==' crossorigin='anonymous' referrerpolicy='no-referrer')
     link(rel='stylesheet' href='/stylesheets/addStudent.css')
-    title Add Grade
+    title Update Grades
+
 
   nav.nav 
     .image
@@ -15,6 +16,7 @@ html(lang='en')
       ul.navList 
         li
           a(href='/') Home 
+
   body
     div(class='form_wrapper')
       div(class='form_container')
@@ -22,13 +24,13 @@ html(lang='en')
           h2 Add Student
         .row.clearfix
           div
-            form(action=`/${id}/addGrade` method='POST')
+            form(action=`/grade/${grade._id}/updateGrade` method='POST')
               div(class='input_field')
                 span
                   i.fas.fa-graduation-cap(aria-hidden='true')
-                input(type='text' name='grade' placeholder='Grade' required)
+                input(type='text' name='grade' value=grade.grade placeholder='Grade' required)
               div(class='input_field')
                 label(for='examDate') Exam Date: 
                 br
-                input(type='date' name='examDate' required)
-              input.button(type='submit' value='Add Grade')
+                input(type='date' name='examDate' value=moment(grade.examDate).format('YYYY-MM-DD') required)
+              input.button(type='submit' value='Update Grade')

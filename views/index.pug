@@ -4,30 +4,45 @@ head
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='/stylesheets/index.css')
-  title Document
+  title Students
+
+  nav.nav 
+    .image
+      img(src='/images/student.png')
+    .links 
+      ul.navList 
+        li
+          a(href='/') Home 
+        li 
+          a(href='/addStudent') Add Student
+
 .container
 
-  table.rwd-table
-    tbody
-      tr
-        th Full Name
-        th Faculty
-        th Grades
-        th Edit
-        th Delete
-      if (students.length > 0)
-        each student in students
-          tr
-            td
-              = student.fullName
-            td
-              = student.faculty
-            td
-               a(href=`/${student._id}/grades`) Grades
-            td
-               a(href=`/${student._id}/edit`) Edit
-            td
-               a(href=`/${student._id}/delete`) Delete
+  if(students.length > 0)
+    table.rwd-table
+      tbody
+        tr
+          th Full Name
+          th Faculty
+          th Grades
+          th Edit
+          th Delete
+        if (students.length > 0)
+          each student in students
+            tr
+              td(data-th='Full Name')
+                a(href=`student/${student._id}/profile`) 
+                  = student.fullName
+              td(data-th='Faculty')
+                = student.faculty
+              td(data-th='Grades')
+                 a(href=`/${student._id}/grades`) Grades
+              td(data-th='Edit')
+                 a(href=`/${student._id}/updateStudent`) Edit
+              td(data-th='Delete')
+                 a(href=`/student/${student._id}/delete`) Delete
+  else 
+    h1 There are no entries
 
 
 

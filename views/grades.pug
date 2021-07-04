@@ -4,27 +4,41 @@ head
   meta(http-equiv='X-UA-Compatible' content='IE=edge')
   meta(name='viewport' content='width=device-width, initial-scale=1.0')
   link(rel='stylesheet' href='/stylesheets/index.css')
-  title Document
+  title Grades
+
+  nav.nav 
+    .image
+      img(src='/images/student.png')
+    .links 
+      ul.navList 
+        li
+          a(href='/') Home 
+        li 
+          a(href=`/${id}/addGrade`) Add Grade
+
 .container
 
-  table.rwd-table
-    tbody
-      tr
-        th Full Name
-        th Grade
-        th Edit
-        th Delete
-      if (grades.length > 0)
-        each grade in grades
-          tr
-            td
-              = moment(grade.examDate).format('DD-MM-YYYY')
-            td
-              = grade.grade
-            td
-               a(href=`/${id}/${grade._id}/edit`) Edit
-            td
-               a(href=`/${id}/${grade._id}/delete`) Delete
+  if(grades.length > 0)
+    table.rwd-table
+      tbody
+        tr
+          th Full Name
+          th Grade
+          th Edit
+          th Delete
+        if (grades.length > 0)
+          each grade in grades
+            tr
+              td(data-th='Full Name')
+                = moment(grade.examDate).format('DD-MM-YYYY')
+              td(data-th='Grade')
+                = grade.grade
+              td(data-th='Edit')
+                 a(href=`/grade/${grade._id}/updateGrade`) Edit
+              td(data-th='Delete')
+                 a(href=`/grade/${grade._id}/delete`) Delete
+  else 
+    h1 There are no entries
 
 
 

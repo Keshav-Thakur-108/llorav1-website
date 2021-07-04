@@ -53,7 +53,7 @@
 
 .rwd-table th,
 .rwd-table td {
-  text-align: center;
+  text-align: left;
 }
 
 .rwd-table {
@@ -105,16 +105,22 @@
 
 /* Basic Styling */
 body {
-  background: #4b79a1;
-  background: -webkit-linear-gradient(to left, #4b79a1, #283e51);
-  background: linear-gradient(to left, #4b79a1, #283e51);
+  padding: 0;
+  margin: 0;
+  background: #eeeeee;
 }
+
 h1 {
   text-align: center;
   font-size: 2.4em;
-  color: #f2f2f2;
+  color: black;
 }
 .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 200px;
+  height: 100%;
   display: block;
   text-align: center;
 }
@@ -170,4 +176,60 @@ a {
   100% {
     transform: translateX(0);
   }
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  position: fixed;
+  height: 64px;
+  color: white;
+  background-color: #007bff;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.image {
+  width: 100%;
+  padding-left: 12px;
+  display: flex;
+  align-items: center;
+}
+
+img {
+  height: 48px;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.navList {
+  padding-right: 12px;
+  cursor: pointer;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+.navList li {
+  padding: 0 20px;
+}
+
+.navList a {
+  color: white;
+}
+
+.navList a:hover {
+  color: rgba(0, 0, 0, 1);
 }

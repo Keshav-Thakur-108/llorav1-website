@@ -2,7 +2,8 @@ const express = require('express'),
       app = express(),
       bodyParser = require('body-parser'),
       mongoose = require('mongoose'),
-      config = require('./config/key')
+      config = require('./config/key'),
+      methodOverride = require('method-override')
 
 app.use(express.urlencoded({extended: true}))
 app.use(express.json())
@@ -10,6 +11,7 @@ app.use(express.static("public"))
 app.use(require('./routes'))
 app.set('view engine', 'pug')
 app.locals.moment = require('moment')
+app.use(methodOverride("_method"));
 
 mongoose.connect(config.mongoURI, {
     useNewUrlParser: true, 
